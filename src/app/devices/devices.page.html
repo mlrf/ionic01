@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bluetooth Scanner</ion-title>
+    <ion-button (click)="scan()" slot="end">
+      <ion-icon name="Bluetooth"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card-content ion-item *ngFor="let device of devices">
+      <p>{{ device.name || 'Unnamed'}}</p>
+      <p>{{ device.id}}</p>
+      <p>RSSI: {{device.rssi}}</p>
+    </ion-card-content>
+  </ion-list>
+</ion-content>
