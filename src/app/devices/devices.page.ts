@@ -1,33 +1,31 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { BLE } from '@ionic-native/ble/ngx';
 import {NavController, NavParams, ToastController} from '@ionic/angular';
+import {Observable} from 'rxjs';
+import {DeviceService} from '../device.service';
 
-
+interface Device{
+    id: string;
+    name: string;
+    rssi: string;
+}
 
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.page.html',
   styleUrls: ['./devices.page.scss'],
 })
-export class DevicesPage implements OnInit {
+export class DevicesPage {
 
-  devices: any[] = [];
+  devices: Device[] = [];
   statusMessage: string;
 
   constructor(public navCtrl: NavController, 
               private toastCtrl: ToastController,
               private ble: BLE,
-              private ngZone: NgZone) { 
-  }
- 
-  ngOnInit() {
-
+              private ngZone: NgZone) {
   }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter');
-    this.scan();
-  }
 
   scan() {
     this.setStatus('Scanning for Bluetooth LE Devices');
