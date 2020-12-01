@@ -8,6 +8,7 @@ import {DevicesPageRoutingModule} from './devices-routing.module';
 
 import {DevicesPage} from './devices.page';
 import {BLE} from '@ionic-native/ble/ngx';
+import {DeviceService} from './device.service';
 
 @NgModule({
     imports: [
@@ -17,8 +18,8 @@ import {BLE} from '@ionic-native/ble/ngx';
         DevicesPageRoutingModule,
 
     ],
-    providers: [
-        BLE,
+    providers: [BLE
+
 ],
 declarations: [DevicesPage]
 })
